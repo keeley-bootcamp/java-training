@@ -1,6 +1,8 @@
 package com.lloyds.vehicle;
 
-public class Vehicle {
+public abstract class Vehicle {
+    public abstract String createBill();
+    private int id;
     private String manufacturer;
     private String model;
     private int year;
@@ -9,7 +11,8 @@ public class Vehicle {
     private String fuelType;
     private String transmission;
 
-    public Vehicle(String manufacturer, String model, int year, String colour, double engineSize, String fuelType, String transmission) {
+    public Vehicle(int id, String manufacturer, String model, int year, String colour, double engineSize, String fuelType, String transmission) {
+        id = this.id;
         manufacturer = this.manufacturer;
         model = this.model;
         year = this.year;
@@ -18,7 +21,7 @@ public class Vehicle {
         fuelType = this.fuelType;
         transmission = this.transmission;
     }
-    
+
     public String getManufacturer() {
         return manufacturer;
     }
@@ -75,4 +78,25 @@ public class Vehicle {
         this.transmission = transmission;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "Vehicle{" +
+                "id=" + id +
+                ", manufacturer='" + manufacturer + '\'' +
+                ", model='" + model + '\'' +
+                ", year=" + year +
+                ", colour='" + colour + '\'' +
+                ", engineSize=" + engineSize +
+                ", fuelType='" + fuelType + '\'' +
+                ", transmission='" + transmission + '\'' +
+                '}';
+    }
 }
